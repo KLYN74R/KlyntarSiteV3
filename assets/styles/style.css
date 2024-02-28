@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+/* OPTIONAL / defining page color variables */
+:root {
+    --black: #000000;
+    --grey1: #a3a3a3;
+    --grey2: #383838;
+    --white: #ffffff;
+    --green: #54ccd4;
+  }
+
+  
+  
+  /* REQUIRED / without this, the cursor will still show */
+  * {
+    cursor: none;
+  }
+  
+  /* OPTIONAL / prevents user from selecting texts */
+  ::selection {
+    /* user-select: none; */
+  }
+  
+  /* OPTIONAL / body styling */
+  body {
+    margin: 0;
+    background-color: var(--black);
+    font-family: 'DM Mono';
+  }
+  
+  /* OPTIONAL - background texture styling */
+  .bg {
+    height: 100%;
+    width: 100%;
+    background-image: url(https://www.transparenttextures.com/patterns/graphy.png);
+    position:fixed;
+    opacity: 30%;
+    
+    z-index: -5;
+  }
+  
+  /* OPTIONAL / this class marks display as flex on the rest of the element's classlist */
+  .flex {
+    display: flex;
+  }
+  
+  /* CUSTOMIZABLE / hyperlink styling */
+  a.like_button {
+    text-decoration: none;
+    color: var(--grey1);
+    padding: 5px 2%;
+    border: 2px solid var(--grey2);
+    border-radius: 50px;
+    
+    align-self: center;
+    text-align: center;
+    
+    transition: all ease-out 0.5s; /* for smooth transitions when cursor leaves the button */
+   
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* CUSTOMIZABLE / hyperlink on-hover styling */
+  a.like_button:hover {
+    padding: 5px 10%;
+    border: 2px solid var(--white);
+    color: var(--white);
+    
+    transition: all ease-out 0.5s; /* for smooth transitions when cursor enters the button */
+    
+    align-self: right;
+    
+    max-width: 100%;
+  }
+  
+  
+  /* OPTIONAL / webpage name  */
+  .name {
+    color: var(--white);
+    font-size: 20px;
+  }
+  
+  
+  /* OPTIONAL */
+  .container {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    max-height: 100%;
+  
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  /* OPTIONAL */
+  .nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+    margin: 3em;
+    opacity: 100%;
+  }
+  
+  /* OPTIONAL / keeps menu width fixed so the buttons can have a smooth transition back and forth */
+  .menu {
+    flex-direction: row;
+    justify-content: center;
+    width: 50vw;
+    max-width: 100vw;
+    gap: 7em;
+  }
+  
+  /* REQUIRED / besides position, pointer-events, transform, and transition, the rest are customizable styling */
+  .small {
+    height: 10px;
+    width: 10px;
+    background-color: var(--green);
+    border-radius: 10px;
+    filter: drop-shadow(0 0 5px var(--green)) drop-shadow(0 0 20px var(--green));
+    
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: height 0.2s, width 0.2s;
+  }
+  
+  /* REQUIRED / besides position, pointer-events, transform, and transition, the rest are customizable styling */
+  .big {
+    height: 50px;
+    width: 50px;
+    border: 3px solid var(--green);
+    border-radius: 100px;
+    filter: drop-shadow(0 0 5px var(--green)) drop-shadow(0 0 20px var(--green));
+    
+    position: fixed;
+    pointer-events: none;
+    transform: translate(calc(-50%), -50%);
+    transition: height 0.5s, width 0.5s, filter 0.5s;
+  }
+  
+  /* REQUIRED / some styling is necessary for hover effect */
+  .hover__big {
+    height: 100px;
+    width: 100px;
+    filter: drop-shadow(0 0 5px var(--green)) drop-shadow(0 0 20px var(--green)) drop-shadow(0 0 40px var(--green));
+    
+    transition: height 0.5s, width 0.5s, filter 0.5s;
+  }
+  
+  /* REQUIRED / some styling is necessary for hover effect */
+  .hover__small {
+    height: 8px;
+    width: 8px;
+    
+    transition: height 0.2s, width 0.2s;
+  }
+  
+  /* OPTIONAL */
+  .hero {
+    margin: 3em;
+    color: var(--grey1);
+    
+    flex-direction: column;
+
+    gap: 1em;
+  }
+  
+  
+  /* OPTIONAL / just an example button */
+  .example {
+    align-self: center;
+    max-width: 100%;
+    width: 80%;
+  }
+  
+  .example:hover {
+    max-width: 100%;
+    width: 100%;
+    padding: 5px 0;
+    
+  }
+  
+  /* OPTIONAL / HUD effects */
+  .hud__effects {
+    flex-direction: row;
+    gap: 10px;
+    margin: 1em 3em;
+  }
+  
+  .effect__long {
+    height: 10px;
+    width: 30px;
+    border: 2px solid var(--grey2);
+    background-color: var(--grey2);
+    border-radius: 20px;
+  }
+  
+  .effect__small {
+    height: 10px;
+    width: 10px;
+    border: 2px solid var(--grey2);
+    border-radius: 100%;
+  }
+  
+  
+  /* OPTIONAL / for device responsiveness */
+  @media only screen and (max-width: 850px) {
+    .nav {
+      flex-direction: column;
+      gap: 1em;
+    }
+    
+    .menu {
+      width: 100%;
+    }
+  }
+  
+  
+  
+  
+/* Extra logic */
+
+ /* CSS для анимации заголовков */
+ @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2 {
+    opacity: 0; /* начальное состояние - заголовки невидимы */
+    animation: fadeInUp 1s ease forwards; /* запуск анимации */
+}
+
+
+h1{
+
+    font-family: "Major Mono Display", monospace;
+    font-weight: 400;
+    font-size: 100;
+    font-style: normal;
+
+}
+
+
+
+.menu img {
+    opacity: 0; /* Начинаем с нулевой прозрачности */
+    transition: opacity 0.5s ease; /* Добавляем плавный переход для opacity */
+    cursor: pointer;
+}
+
+.menu img:first-child {
+    animation: fadeIn 0.5s ease 0s forwards; /* Анимация для первой картинки */
+}
+
+.menu img:nth-child(2) {
+    animation: fadeIn 0.5s ease 0.5s forwards; /* Анимация для второй картинки, с задержкой в 0.5 секунды */
+}
+
+.menu img:nth-child(3) {
+    animation: fadeIn 0.5s ease 1s forwards; /* Анимация для третьей картинки, с задержкой в 1 секунду */
+}
+
+.menu img:nth-child(4) {
+    animation: fadeIn 0.5s ease 1.5s forwards; /* Анимация для четвертой картинки, с задержкой в 1.5 секунды */
+}
+
+.menu img:nth-child(5) {
+    animation: fadeIn 0.5s ease 2s forwards; /* Анимация для пятой картинки, с задержкой в 2 секунды */
+}
+
+.menu img:nth-child(6) {
+    animation: fadeIn 0.5s ease 2.5s forwards; /* Анимация для пятой картинки, с задержкой в 2 секунды */
+}
+
+.menu img:nth-child(7) {
+    animation: fadeIn 0.5s ease 3s forwards; /* Анимация для пятой картинки, с задержкой в 2 секунды */
+}
+
+
+.social-icon {
+  margin-right: 10px;
+
+}
+
+
+.menu img:hover {
+  
+  transform: scale(1.1);
+
+}
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Устанавливаем конечную прозрачность 1 */
+    }
+}
+
+
+#welcome_text {
+
+    overflow: hidden; /* скрываем изначально текст */
+    white-space: nowrap; /* предотвращаем перенос строк */
+    animation: typing 4s steps(40) forwards; /* задаем анимацию с постепенным появлением текста */
+
+}
+
+@keyframes typing {
+    from {
+      width: 0; /* начальная ширина текста */
+    }
+    to {
+      width: 100%; /* конечная ширина текста */
+    }
+}
+
+
+#features_block{
+
+    margin-top: 100px;
+
+}
+
+#features__header--second{
+
+    margin-top:0px;
+    margin-bottom: 80px;
+    font-family: "Orbitron", sans-serif;
+
+}
+
+marquee{
+
+    font-family: "Orbitron", sans-serif;
+
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+    height: 90px;
+    color: #cb3030;
+
+}
+
+
+#pseudo_footer__title{
+
+    margin-top:80px;
+    font-family: "Orbitron", sans-serif;
+
+}
+
+
+.features__content>h2{
+
+  font-family: "Orbitron", sans-serif;
+
+}
