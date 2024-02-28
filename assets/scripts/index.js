@@ -39,13 +39,13 @@ a.forEach(item => {
   });
 })
 
-
-document.addEventListener('DOMContentLoaded', function() {
-  const icons = document.querySelectorAll('.social-icon');
+const icons = document.querySelectorAll('.social_icon');
   icons.forEach(icon => {
       icon.addEventListener('click', function() {
+          
           const link = this.getAttribute('data-link');
-          window.location.href = link;
+          
+          window.open(link,'_blank');
+
       });
-  });
 });
